@@ -50,9 +50,9 @@ for foto in fotos:
     ret,tresh1= cv2.threshold(gri,150,250,cv2.THRESH_BINARY)
 
 
-    kirp1=tresh[105:133,393:600]
-    kirp2=tresh[617:647,393:600]
-    kirp3=tresh[1129:1160,393:600]
+    date1=tresh[105:133,393:600]
+    date2=tresh[617:647,393:600]
+    date3=tresh[1129:1160,393:600]
 
     tc1=tresh[130:153,400:520]
     tc2=tresh[642:665,400:520]
@@ -60,9 +60,9 @@ for foto in fotos:
 
     custom_config = r'--oem 3 --psm 6'
     
-    sozluk[str(pytesseract.image_to_string(tc1, config=custom_config)).replace("\n","")] = str(pytesseract.image_to_string(kirp1, config=custom_config)).replace("\n","")
-    sozluk[str(pytesseract.image_to_string(tc2, config=custom_config)).replace("\n","")] = str(pytesseract.image_to_string(kirp2, config=custom_config)).replace("\n","")
-    sozluk[str(pytesseract.image_to_string(tc3, config=custom_config)).replace("\n","")] = str(pytesseract.image_to_string(kirp3, config=custom_config)).replace("\n","")
+    sozluk[str(pytesseract.image_to_string(tc1, config=custom_config)).replace("\n","")] = str(pytesseract.image_to_string(date1, config=custom_config)).replace("\n","")
+    sozluk[str(pytesseract.image_to_string(tc2, config=custom_config)).replace("\n","")] = str(pytesseract.image_to_string(date2, config=custom_config)).replace("\n","")
+    sozluk[str(pytesseract.image_to_string(tc3, config=custom_config)).replace("\n","")] = str(pytesseract.image_to_string(date3, config=custom_config)).replace("\n","")
     
 
 cv2.waitKey(0)
